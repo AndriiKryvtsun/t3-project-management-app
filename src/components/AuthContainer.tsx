@@ -80,6 +80,7 @@ export function AuthContainer() {
                 router.push("/dashboard")
             }
         } catch (err) {
+            console.error(err);
             setError("An error occurred. Please try again.")
             setLoading(false)
         }
