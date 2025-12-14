@@ -61,7 +61,7 @@ export const projectRouter = router({
             return prisma.project.updateMany({ where: { id, userId: ctx.userId }, data });
         }),
 
-    getById: procedure.input(z.object({ id: z.string() })).query(async ({ input, ctx }) => {
+    getById: procedure.input(z.object({ id: z.string() })).output(ProjectSchema.nullable()).query(async ({ input, ctx }) => {
         const project = await prisma.project.findFirst({
             where: { id: input.id, userId: ctx.userId },
             include: { tasks: true },
