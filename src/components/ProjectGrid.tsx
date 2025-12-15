@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation"
 import { Card } from "@/components/ui/Card"
 import { Button } from "@/components/ui/Button"
 import { Trash2, ArrowRight, CheckCircle2, Folder } from "lucide-react"
+import {Task} from "@/server/trpc/schemas/task.schema";
 
 interface Project {
     id: string
@@ -11,7 +12,7 @@ interface Project {
     description: string
     color: string
     createdAt: string
-    tasks?: any[]
+    tasks?: Task[]
 }
 
 interface ProjectGridProps {
